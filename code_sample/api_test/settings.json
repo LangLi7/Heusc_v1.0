@@ -1,0 +1,9 @@
+{
+  "settings": {
+    "source": "yahoo",
+    "interval": "1m",
+    "period": "1mo",
+    "data_folder": "csv/yahoo",
+    "symbols": ["BTC-USD", "NVDA", "AAPL"]
+  }
+}

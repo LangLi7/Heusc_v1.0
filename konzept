@@ -1,0 +1,247 @@
+Komplettes Konzept: Deep-Learning Trading Bot
+1. Zielsetzung
+
+Erstellung eines neuronalen Netzes für Candle-Daten Vorhersagen: Rot / Grün
+
+Später Erweiterung: % Gewinnschätzung
+
+Nutzung von offline CSV-Daten und online Live-Daten (API)
+
+Integration von Balance-Simulation für Training und Bewertung
+
+Loggen aller Aktionen, Prognosen und Balance-Entwicklung in JSON-Dateien
+
+Möglichkeit des Retrainings aus besten Modellen
+
+Modell-Versionierung nach Datum und Status (Game Over / Success)
+
+2. Trainingslogik / Vorgehensweise
+
+Datenquellen
+
+Offline CSV-Dateien
+
+Ordner + Dateiname aus JSON konfigurierbar
+
+Candle-Daten für Training und Validierung
+
+Online Live Mode (API)
+
+Symbole: Aktien, ETFs, Kryptowährungen
+
+Währungen: USD, EUR etc.
+
+Intervall: 1s, 1m, 1h etc.
+
+Polling Intervall einstellbar
+
+Vorhersagen
+
+Rot / Grün
+
+Confidence / Gewichtung der Vorhersage (z. B. Rot 40%, Grün 60%)
+
+Update-Logik
+
+Nach jeder Prognose:
+
+Richtig → Belohnung: Balance steigt, Gewichtung ggf. angepasst
+
+Falsch → Bestrafung: Balance fällt, Gewichtung ggf. angepasst
+
+Confidence beeinflusst Entscheidungsstärke / Trade-Größe
+
+Balance-Training
+
+Startbalance definierbar in JSON
+
+Simulation von Trades mit Gewinn / Verlust
+
+Game Over bei Balance ≤ Threshold
+
+Nach Game Over → Retraining mit neuer Balance (z. B. random zwischen 50–1500)
+
+Speicherung: Transaktionen + Balance + Status im modellbezogenen JSON
+
+Transaktions-Logging
+
+Jede Aktion wird protokolliert:
+
+Timestamp
+
+Vorhersage / tatsächlicher Wert
+
+Gewinn / Verlust
+
+Confidence
+
+JSON-Datei pro Modell (z. B. model_name.json)
+
+Ermöglicht Analyse, Retraining und Verbesserung des Bots
+
+3. Model Handling
+
+.h5 Dateien
+
+Speichern / Laden von TensorFlow / Keras Modellen
+
+Modellname inkl. Datum/Uhrzeit + Status (Game Over / Success)
+
+JSON für Trainings- und Transaktionsdaten
+
+Enthält Balance, Transaktionshistorie, Game Over / Success, ggf. Confidence
+
+Retraining
+
+Modell kann aus bestem Modell fortgesetzt werden
+
+Kombination von Success / Failure Modellen möglich (Fusion)
+
+Versionierung
+
+Datum + Uhrzeit im Dateinamen
+
+Ermöglicht Historie und Backtracking
+
+4. Settings / Konfiguration (JSON)
+{
+  "allgemein_settings": {
+    "model_folder": "models",
+    "use_model_file": "",              // Name der zu ladenden H5 Datei, leer = neues Modell
+    "sequence_length": 60,
+    "train_epochs": 10,
+    "batch_size": 32,
+    "validation_split": 0.2,
+    "early_stopping_patience": 5,
+    "feature_scaling": true,
+    "use_dropout": true,
+    "dropout_rate": 0.2,
+    "loss_function": "binary_crossentropy",
+    "optimizer": "adam",
+    "debug_mode": true
+  },
+
+  "offline": {
+    "enabled": true,
+    "csv_folder": "data/",
+    "csv_file": "BTC-EUR_candles.csv"
+  },
+
+  "online": {
+    "enabled": false,
+    "symbols": ["BTC", "ETH", "AAPL"],
+    "currencies": ["USD", "EUR", "USD"],
+    "interval": "1m",
+    "poll_seconds": 10,
+    "max_live_train_minutes": 60
+  },
+
+  "balance": {
+    "use_simulation": true,
+    "initial_balance": 1000,
+    "save_on_profit_percent": 50,      // Modell speichern bei X% Gewinn
+    "game_over_threshold": 0,
+    "balance_reward_factor": 1.0,      // Multiplikator für Gewinn/Verlust
+    "retrain_from_best": true
+  },
+
+  "training_options": {
+    "use_weighting": true,             // Gewichtung bei Richtig/Falsch
+    "punish_on_wrong": true,           // Strafgewichtung bei Falsch
+    "predict_confidence": true,        // Confidence Ausgaben aktivieren
+    "log_transactions": true           // Jede Transaktion loggen
+  }
+}
+
+
+Flexibel: JSON kann modular geladen werden: offline, online, balance, allgemein
+
+Parameter-Steuerung:
+
+Training (Epochs, Batch Size, Dropout)
+
+Balance (Start, Reward, Game Over)
+
+Online / Offline Datenquellen
+
+Gewichtung / Confidence / Logging
+
+5. Transaktions-JSON Beispiel
+{
+  "model": "model_v1.h5",
+  "created": "2025-09-12 16:00:00",
+  "status": "running",
+  "balance": 1200,
+  "transactions": [
+    {
+      "timestamp": "2025-09-12 16:01:00",
+      "predicted": "Grün",
+      "actual": "Grün",
+      "profit": 20,
+      "confidence": {"Rot": 0.3, "Grün": 0.7}
+    },
+    {
+      "timestamp": "2025-09-12 16:02:00",
+      "predicted": "Rot",
+      "actual": "Grün",
+      "profit": -10,
+      "confidence": {"Rot": 0.6, "Grün": 0.4}
+    }
+  ]
+}
+
+6. Trainings- & Belohnungslogik
+
+Offline Training
+
+CSV-Daten
+
+Update nach jeder Candle (R/G)
+
+Confidence berücksichtigt
+
+Online Training
+
+Live API Daten
+
+Balance Simulation optional
+
+Balance / Reward
+
+Gewinn → Belohnung (Balance steigt, ggf. Gewichtung)
+
+Verlust → Bestrafung (Balance fällt, ggf. Gewichtung)
+
+Game Over → neues Training mit angepasster Balance
+
+Erfolg → Modell speichern (inkl. Datum, Uhrzeit, Status)
+
+Weighting
+
+Optional über JSON aktivierbar
+
+Confidence & Gewichtung beeinflussen zukünftige Vorhersagen
+
+7. Erweiterungen & Ideen
+
+Kombination / Fusion von Success / Failure Modellen
+
+Fortschrittliche Retraining-Strategien basierend auf Balance & Confidence
+
+Integration weiterer Features: z. B. Handelsvolumen, RSI, technische Indikatoren
+
+Visualisierung von Transaktionsverläufen aus JSON
+
+Wenn du willst, kann ich als Nächstes das Python-Skeleton erstellen, das:
+
+JSON einliest
+
+Offline CSV trainiert
+
+Balance-Training & Simulation ermöglicht
+
+Transaktionen in JSON loggt
+
+Model .h5 abspeichert inkl. Datum/Uhrzeit + Status
+
+Damit hätten wir die komplette Basis für einen halb-/vollautomatischen Trading-Bot.

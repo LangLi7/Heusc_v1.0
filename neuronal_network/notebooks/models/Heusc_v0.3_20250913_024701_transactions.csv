@@ -1,0 +1,2 @@
+timestamp,symbol,open,high,low,close,prev_close,current_close,volume,balance_invested,profit,predicted,actual,confidence_green,confidence_red
+2025-09-13 12:44:27,BTCUSDT,116059.8,116059.81,116051.0,116051.0,116059.8,116051.0,2.50022,100.0,0,red,red,0.7,0.3

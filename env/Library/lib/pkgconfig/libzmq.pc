@@ -1,0 +1,12 @@
+prefix=D:/.Projekt/Programmieren/Python/AI/Project HEUSC/Konzept_One/Daytrading/v1.0/env/Library
+exec_prefix=D:/.Projekt/Programmieren/Python/AI/Project HEUSC/Konzept_One/Daytrading/v1.0/env/Library
+libdir=D:/.Projekt/Programmieren/Python/AI/Project HEUSC/Konzept_One/Daytrading/v1.0/env/Library/lib
+includedir=D:/.Projekt/Programmieren/Python/AI/Project HEUSC/Konzept_One/Daytrading/v1.0/env/Library/include
+
+Name: libzmq
+Description: 0MQ c++ library
+Version: 4.3.5
+Libs: -L${libdir} -lzmq
+Libs.private: -lstdc++ 
+Requires.private: 
+Cflags: -I${includedir} 

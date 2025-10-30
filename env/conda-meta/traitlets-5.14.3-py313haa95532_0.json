@@ -1,0 +1,482 @@
+{
+  "build": "py313haa95532_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/win-64",
+  "constrains": [],
+  "depends": [
+    "python >=3.13,<3.14.0a0",
+    "python_abi 3.13.* *_cp313"
+  ],
+  "extracted_package_dir": "C:\\ProgramData\\anaconda3\\pkgs\\traitlets-5.14.3-py313haa95532_0",
+  "files": [
+    "Lib/site-packages/traitlets-5.14.3.dist-info/INSTALLER",
+    "Lib/site-packages/traitlets-5.14.3.dist-info/METADATA",
+    "Lib/site-packages/traitlets-5.14.3.dist-info/RECORD",
+    "Lib/site-packages/traitlets-5.14.3.dist-info/REQUESTED",
+    "Lib/site-packages/traitlets-5.14.3.dist-info/WHEEL",
+    "Lib/site-packages/traitlets-5.14.3.dist-info/direct_url.json",
+    "Lib/site-packages/traitlets-5.14.3.dist-info/licenses/LICENSE",
+    "Lib/site-packages/traitlets/__init__.py",
+    "Lib/site-packages/traitlets/__pycache__/__init__.cpython-313.pyc",
+    "Lib/site-packages/traitlets/__pycache__/_version.cpython-313.pyc",
+    "Lib/site-packages/traitlets/__pycache__/log.cpython-313.pyc",
+    "Lib/site-packages/traitlets/__pycache__/traitlets.cpython-313.pyc",
+    "Lib/site-packages/traitlets/_version.py",
+    "Lib/site-packages/traitlets/config/__init__.py",
+    "Lib/site-packages/traitlets/config/__pycache__/__init__.cpython-313.pyc",
+    "Lib/site-packages/traitlets/config/__pycache__/application.cpython-313.pyc",
+    "Lib/site-packages/traitlets/config/__pycache__/argcomplete_config.cpython-313.pyc",
+    "Lib/site-packages/traitlets/config/__pycache__/configurable.cpython-313.pyc",
+    "Lib/site-packages/traitlets/config/__pycache__/loader.cpython-313.pyc",
+    "Lib/site-packages/traitlets/config/__pycache__/manager.cpython-313.pyc",
+    "Lib/site-packages/traitlets/config/__pycache__/sphinxdoc.cpython-313.pyc",
+    "Lib/site-packages/traitlets/config/application.py",
+    "Lib/site-packages/traitlets/config/argcomplete_config.py",
+    "Lib/site-packages/traitlets/config/configurable.py",
+    "Lib/site-packages/traitlets/config/loader.py",
+    "Lib/site-packages/traitlets/config/manager.py",
+    "Lib/site-packages/traitlets/config/sphinxdoc.py",
+    "Lib/site-packages/traitlets/log.py",
+    "Lib/site-packages/traitlets/py.typed",
+    "Lib/site-packages/traitlets/tests/__init__.py",
+    "Lib/site-packages/traitlets/tests/__pycache__/__init__.cpython-313.pyc",
+    "Lib/site-packages/traitlets/tests/__pycache__/test_traitlets.cpython-313.pyc",
+    "Lib/site-packages/traitlets/tests/__pycache__/utils.cpython-313.pyc",
+    "Lib/site-packages/traitlets/tests/test_traitlets.py",
+    "Lib/site-packages/traitlets/tests/utils.py",
+    "Lib/site-packages/traitlets/traitlets.py",
+    "Lib/site-packages/traitlets/utils/__init__.py",
+    "Lib/site-packages/traitlets/utils/__pycache__/__init__.cpython-313.pyc",
+    "Lib/site-packages/traitlets/utils/__pycache__/bunch.cpython-313.pyc",
+    "Lib/site-packages/traitlets/utils/__pycache__/decorators.cpython-313.pyc",
+    "Lib/site-packages/traitlets/utils/__pycache__/descriptions.cpython-313.pyc",
+    "Lib/site-packages/traitlets/utils/__pycache__/getargspec.cpython-313.pyc",
+    "Lib/site-packages/traitlets/utils/__pycache__/importstring.cpython-313.pyc",
+    "Lib/site-packages/traitlets/utils/__pycache__/nested_update.cpython-313.pyc",
+    "Lib/site-packages/traitlets/utils/__pycache__/sentinel.cpython-313.pyc",
+    "Lib/site-packages/traitlets/utils/__pycache__/text.cpython-313.pyc",
+    "Lib/site-packages/traitlets/utils/__pycache__/warnings.cpython-313.pyc",
+    "Lib/site-packages/traitlets/utils/bunch.py",
+    "Lib/site-packages/traitlets/utils/decorators.py",
+    "Lib/site-packages/traitlets/utils/descriptions.py",
+    "Lib/site-packages/traitlets/utils/getargspec.py",
+    "Lib/site-packages/traitlets/utils/importstring.py",
+    "Lib/site-packages/traitlets/utils/nested_update.py",
+    "Lib/site-packages/traitlets/utils/sentinel.py",
+    "Lib/site-packages/traitlets/utils/text.py",
+    "Lib/site-packages/traitlets/utils/warnings.py"
+  ],
+  "fn": "traitlets-5.14.3-py313haa95532_0.conda",
+  "license": "BSD-3-Clause",
+  "link": {
+    "source": "C:\\ProgramData\\anaconda3\\pkgs\\traitlets-5.14.3-py313haa95532_0",
+    "type": 1
+  },
+  "md5": "0a77cf43cb292b62f1021ec2f59b809c",
+  "name": "traitlets",
+  "package_tarball_full_path": "C:\\ProgramData\\anaconda3\\pkgs\\traitlets-5.14.3-py313haa95532_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "Lib/site-packages/traitlets-5.14.3.dist-info/INSTALLER",
+        "path_type": "hardlink",
+        "sha256": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "sha256_in_prefix": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "size_in_bytes": 5
+      },
+      {
+        "_path": "Lib/site-packages/traitlets-5.14.3.dist-info/METADATA",
+        "path_type": "hardlink",
+        "sha256": "ca0707dd88c2f8bbfd99800813df0b2cd19b884921efce72dcc9bf604fee5d56",
+        "sha256_in_prefix": "ca0707dd88c2f8bbfd99800813df0b2cd19b884921efce72dcc9bf604fee5d56",
+        "size_in_bytes": 10691
+      },
+      {
+        "_path": "Lib/site-packages/traitlets-5.14.3.dist-info/RECORD",
+        "path_type": "hardlink",
+        "sha256": "0a34d96a3d80b137a5bada774c4ef7c13815f5221065b00719871aaba9b76742",
+        "sha256_in_prefix": "0a34d96a3d80b137a5bada774c4ef7c13815f5221065b00719871aaba9b76742",
+        "size_in_bytes": 4069
+      },
+      {
+        "_path": "Lib/site-packages/traitlets-5.14.3.dist-info/REQUESTED",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "Lib/site-packages/traitlets-5.14.3.dist-info/WHEEL",
+        "path_type": "hardlink",
+        "sha256": "d7215d7625cc9af60aed0613aad44db57eba589d0ccfc3d8122114a0e514c516",
+        "sha256_in_prefix": "d7215d7625cc9af60aed0613aad44db57eba589d0ccfc3d8122114a0e514c516",
+        "size_in_bytes": 87
+      },
+      {
+        "_path": "Lib/site-packages/traitlets-5.14.3.dist-info/direct_url.json",
+        "path_type": "hardlink",
+        "sha256": "c306c84f33360fc3fad79d371d51362b00837c6130404fe1f2ca86de4468604b",
+        "sha256_in_prefix": "c306c84f33360fc3fad79d371d51362b00837c6130404fe1f2ca86de4468604b",
+        "size_in_bytes": 117
+      },
+      {
+        "_path": "Lib/site-packages/traitlets-5.14.3.dist-info/licenses/LICENSE",
+        "path_type": "hardlink",
+        "sha256": "2f51727d9063b54856773cb51388bdb79f2936ee4a1b692ef553d8c4201311ab",
+        "sha256_in_prefix": "2f51727d9063b54856773cb51388bdb79f2936ee4a1b692ef553d8c4201311ab",
+        "size_in_bytes": 1536
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "a2040be9b1c774396085125f9d8035fc453394d9790368d1d8d543c2bf505e7e",
+        "sha256_in_prefix": "a2040be9b1c774396085125f9d8035fc453394d9790368d1d8d543c2bf505e7e",
+        "size_in_bytes": 938
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/__pycache__/__init__.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "2ecd2192ffd172bee64419bf4e792392f16c0b06f138a7ba2b974ef13661f274",
+        "sha256_in_prefix": "2ecd2192ffd172bee64419bf4e792392f16c0b06f138a7ba2b974ef13661f274",
+        "size_in_bytes": 1448
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/__pycache__/_version.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "cb14a5e91de8eafc7c3144dcf083918cb5b2be960e013e67cab1311e816c3619",
+        "sha256_in_prefix": "cb14a5e91de8eafc7c3144dcf083918cb5b2be960e013e67cab1311e816c3619",
+        "size_in_bytes": 843
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/__pycache__/log.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "83c074895b930bd3e6f2bb8f6eb07b2cc390bf3e6f5c9a8f9adc2ba85f53a88e",
+        "sha256_in_prefix": "83c074895b930bd3e6f2bb8f6eb07b2cc390bf3e6f5c9a8f9adc2ba85f53a88e",
+        "size_in_bytes": 1166
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/__pycache__/traitlets.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "d766cd6f855e614d808e4fd26657caf3090a88f97f076193d42ba0a99808f528",
+        "sha256_in_prefix": "d766cd6f855e614d808e4fd26657caf3090a88f97f076193d42ba0a99808f528",
+        "size_in_bytes": 181275
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/_version.py",
+        "path_type": "hardlink",
+        "sha256": "b7df970be497e7f8fb394ae1923086ff8cfea29de081368d84112ae5d5d4cc78",
+        "sha256_in_prefix": "b7df970be497e7f8fb394ae1923086ff8cfea29de081368d84112ae5d5d4cc78",
+        "size_in_bytes": 557
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "ad436afcf8a0ee3cab86644426ab9bba65c5b702ec30271a5a0c725ff3c3630d",
+        "sha256_in_prefix": "ad436afcf8a0ee3cab86644426ab9bba65c5b702ec30271a5a0c725ff3c3630d",
+        "size_in_bytes": 477
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/__pycache__/__init__.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "7300e4b8d86aaee9f8706c3685e7412097748b39e5116da33db048d0414f973b",
+        "sha256_in_prefix": "7300e4b8d86aaee9f8706c3685e7412097748b39e5116da33db048d0414f973b",
+        "size_in_bytes": 478
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/__pycache__/application.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "a972c4d1ace3e460065ef313052f844e9ba51a00c24ae3e89fcfd9f847a9dd16",
+        "sha256_in_prefix": "a972c4d1ace3e460065ef313052f844e9ba51a00c24ae3e89fcfd9f847a9dd16",
+        "size_in_bytes": 49645
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/__pycache__/argcomplete_config.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "57c1ab93af35b5f8cc5174081f53dbbf7f83bd4f312d5e9cfa502aab1879dcc8",
+        "sha256_in_prefix": "57c1ab93af35b5f8cc5174081f53dbbf7f83bd4f312d5e9cfa502aab1879dcc8",
+        "size_in_bytes": 10240
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/__pycache__/configurable.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "f9a0be9e6fce8720308867e19c1dcaeb36dd71d2d0438aa55aada8fb3fdd0c86",
+        "sha256_in_prefix": "f9a0be9e6fce8720308867e19c1dcaeb36dd71d2d0438aa55aada8fb3fdd0c86",
+        "size_in_bytes": 25319
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/__pycache__/loader.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "f98f43a46ed9b7bf517a16db77d9fe297efa563db5567abd784774c38464b0bc",
+        "sha256_in_prefix": "f98f43a46ed9b7bf517a16db77d9fe297efa563db5567abd784774c38464b0bc",
+        "size_in_bytes": 51440
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/__pycache__/manager.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "12cf4c7bd35e96f652c9817bcde61b66e9cc46a66661f0371ff9d96c9c471019",
+        "sha256_in_prefix": "12cf4c7bd35e96f652c9817bcde61b66e9cc46a66661f0371ff9d96c9c471019",
+        "size_in_bytes": 3935
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/__pycache__/sphinxdoc.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "7f0fe812b9fc976dc4331d793faf0872cc6b4c2f7defff786e403c9e042d0d9d",
+        "sha256_in_prefix": "7f0fe812b9fc976dc4331d793faf0872cc6b4c2f7defff786e403c9e042d0d9d",
+        "size_in_bytes": 7183
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/application.py",
+        "path_type": "hardlink",
+        "sha256": "53a151b45cbf34eb2f884fb261094f14008fef16c71c2db7985ea6493cc1c526",
+        "sha256_in_prefix": "53a151b45cbf34eb2f884fb261094f14008fef16c71c2db7985ea6493cc1c526",
+        "size_in_bytes": 42761
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/argcomplete_config.py",
+        "path_type": "hardlink",
+        "sha256": "1022af22a48e4cbcf0d4e0617d50d58218943eb055fdd92f40a44fb393ae854c",
+        "sha256_in_prefix": "1022af22a48e4cbcf0d4e0617d50d58218943eb055fdd92f40a44fb393ae854c",
+        "size_in_bytes": 10337
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/configurable.py",
+        "path_type": "hardlink",
+        "sha256": "f24ab6e04f4fcb6898935be587c93a46603ca4ab199d9ffa4880759f61c2b22b",
+        "sha256_in_prefix": "f24ab6e04f4fcb6898935be587c93a46603ca4ab199d9ffa4880759f61c2b22b",
+        "size_in_bytes": 22453
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/loader.py",
+        "path_type": "hardlink",
+        "sha256": "2f456342a2109264b82a9161f3a3063734d37f3f534640cc7ab86727c1a903aa",
+        "sha256_in_prefix": "2f456342a2109264b82a9161f3a3063734d37f3f534640cc7ab86727c1a903aa",
+        "size_in_bytes": 40101
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/manager.py",
+        "path_type": "hardlink",
+        "sha256": "b77d0fe098bf15b241328021df6a35f4d9e55e02ea7ff5a670f0c2417b24b9a7",
+        "sha256_in_prefix": "b77d0fe098bf15b241328021df6a35f4d9e55e02ea7ff5a670f0c2417b24b9a7",
+        "size_in_bytes": 2470
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/config/sphinxdoc.py",
+        "path_type": "hardlink",
+        "sha256": "ef22bd10b312716b664484dd5020776d6a95a404470fc44c7724c3db00bbc4ee",
+        "sha256_in_prefix": "ef22bd10b312716b664484dd5020776d6a95a404470fc44c7724c3db00bbc4ee",
+        "size_in_bytes": 5252
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/log.py",
+        "path_type": "hardlink",
+        "sha256": "8b2cd32a37e8d574efc196ded10ebe9609d7ab115ad692d6faddd20433ae073c",
+        "sha256_in_prefix": "8b2cd32a37e8d574efc196ded10ebe9609d7ab115ad692d6faddd20433ae073c",
+        "size_in_bytes": 955
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/py.typed",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/tests/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/tests/__pycache__/__init__.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "e544325e3ed6f66f2c4f8abc3d83941e4f8331173651a5626afa94c0ea52712b",
+        "sha256_in_prefix": "e544325e3ed6f66f2c4f8abc3d83941e4f8331173651a5626afa94c0ea52712b",
+        "size_in_bytes": 142
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/tests/__pycache__/test_traitlets.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "4f2164ea53d2c5d2558b2cca8504d87e6a9ac90f9b4cd216089430787ae4280c",
+        "sha256_in_prefix": "4f2164ea53d2c5d2558b2cca8504d87e6a9ac90f9b4cd216089430787ae4280c",
+        "size_in_bytes": 3645
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/tests/__pycache__/utils.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "7f6be08e5c072350127906aaefb20ff7ef607dab807b2d9b485c53f144c7ad44",
+        "sha256_in_prefix": "7f6be08e5c072350127906aaefb20ff7ef607dab807b2d9b485c53f144c7ad44",
+        "size_in_bytes": 2160
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/tests/test_traitlets.py",
+        "path_type": "hardlink",
+        "sha256": "6eb090f0dcffaf59deb88a5dfc01aa590cfbe460d0f57b7f0e2bb5c5de47ef99",
+        "sha256_in_prefix": "6eb090f0dcffaf59deb88a5dfc01aa590cfbe460d0f57b7f0e2bb5c5de47ef99",
+        "size_in_bytes": 2103
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/tests/utils.py",
+        "path_type": "hardlink",
+        "sha256": "3c50de63fd8f27c4d21994e7f69479f854b6c4546635bf6c0a8db31596c5dd14",
+        "sha256_in_prefix": "3c50de63fd8f27c4d21994e7f69479f854b6c4546635bf6c0a8db31596c5dd14",
+        "size_in_bytes": 1381
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/traitlets.py",
+        "path_type": "hardlink",
+        "sha256": "a6b2bc5668fb926cd8416599ea45c282d6f44f165ab914f8eb8a71d112372a65",
+        "sha256_in_prefix": "a6b2bc5668fb926cd8416599ea45c282d6f44f165ab914f8eb8a71d112372a65",
+        "size_in_bytes": 151849
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "639de6d403e8b76000b427f0a5550ebd8457e803292aa3a22a1ae833409d4d6c",
+        "sha256_in_prefix": "639de6d403e8b76000b427f0a5550ebd8457e803292aa3a22a1ae833409d4d6c",
+        "size_in_bytes": 3144
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/__pycache__/__init__.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "b57aac61926c70a3183e7bc8ff20eb1c9903c0cf1746628a42cf679697d05b22",
+        "sha256_in_prefix": "b57aac61926c70a3183e7bc8ff20eb1c9903c0cf1746628a42cf679697d05b22",
+        "size_in_bytes": 3753
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/__pycache__/bunch.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "19d1e5dfda311b2dfb01fdd0fe06466c525fdea46feec0156bfd36b08f3793c5",
+        "sha256_in_prefix": "19d1e5dfda311b2dfb01fdd0fe06466c525fdea46feec0156bfd36b08f3793c5",
+        "size_in_bytes": 1462
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/__pycache__/decorators.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "db14d13203f60f2e7cd7ab72acd966c6dca21459eb50f26dc8af09b0f865ae19",
+        "sha256_in_prefix": "db14d13203f60f2e7cd7ab72acd966c6dca21459eb50f26dc8af09b0f865ae19",
+        "size_in_bytes": 3274
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/__pycache__/descriptions.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "73bdc1e2737bec573f3cd237c62cadf51ee3b7ce7c3740d9ceb6f607abc1393b",
+        "sha256_in_prefix": "73bdc1e2737bec573f3cd237c62cadf51ee3b7ce7c3740d9ceb6f607abc1393b",
+        "size_in_bytes": 6385
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/__pycache__/getargspec.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "2eb18fc7905407fd70ecd59b2de91fb421df18f208d2cdac5ebe92df4b22c11a",
+        "sha256_in_prefix": "2eb18fc7905407fd70ecd59b2de91fb421df18f208d2cdac5ebe92df4b22c11a",
+        "size_in_bytes": 2468
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/__pycache__/importstring.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "a7c8898775da437d1dd36de5c6ed576870b474952064cf3def4376667c7b9a47",
+        "sha256_in_prefix": "a7c8898775da437d1dd36de5c6ed576870b474952064cf3def4376667c7b9a47",
+        "size_in_bytes": 1514
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/__pycache__/nested_update.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "d1ed7bd07d1dd440a8f6ea98b1c19516a7154107b58ac8071b0fb1cf06e6f308",
+        "sha256_in_prefix": "d1ed7bd07d1dd440a8f6ea98b1c19516a7154107b58ac8071b0fb1cf06e6f308",
+        "size_in_bytes": 1311
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/__pycache__/sentinel.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "3e83a437af16618c86b4a923b491adf8ba2c895af300338bdbdb5ec57539a22c",
+        "sha256_in_prefix": "3e83a437af16618c86b4a923b491adf8ba2c895af300338bdbdb5ec57539a22c",
+        "size_in_bytes": 1369
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/__pycache__/text.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "083a9708fd4415166431f21f4b86c1da754a6fcbce07f6eab42bcf85e202654a",
+        "sha256_in_prefix": "083a9708fd4415166431f21f4b86c1da754a6fcbce07f6eab42bcf85e202654a",
+        "size_in_bytes": 1650
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/__pycache__/warnings.cpython-313.pyc",
+        "path_type": "hardlink",
+        "sha256": "d0a13129962c4320da79f3b61785acb76d5b2ace9135dbd1d9dbed444264b44f",
+        "sha256_in_prefix": "d0a13129962c4320da79f3b61785acb76d5b2ace9135dbd1d9dbed444264b44f",
+        "size_in_bytes": 2755
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/bunch.py",
+        "path_type": "hardlink",
+        "sha256": "4158a8796a87e44647fa1febaa13deca6cfa8866077fb09e64c010d1e37e6fbb",
+        "sha256_in_prefix": "4158a8796a87e44647fa1febaa13deca6cfa8866077fb09e64c010d1e37e6fbb",
+        "size_in_bytes": 784
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/decorators.py",
+        "path_type": "hardlink",
+        "sha256": "70ca54cb7be591ecf98875980f4cc51adcf689cade97509ba1325d50928dc824",
+        "sha256_in_prefix": "70ca54cb7be591ecf98875980f4cc51adcf689cade97509ba1325d50928dc824",
+        "size_in_bytes": 3084
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/descriptions.py",
+        "path_type": "hardlink",
+        "sha256": "f03a9d08995c9ee0714d410525ee52371490e9fb81ed0748e48d3635367a8a08",
+        "sha256_in_prefix": "f03a9d08995c9ee0714d410525ee52371490e9fb81ed0748e48d3635367a8a08",
+        "size_in_bytes": 5571
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/getargspec.py",
+        "path_type": "hardlink",
+        "sha256": "e1f7f900bc374bf126dfa3a5c5eec0dede55433cee62afd896c1aa8dcb205b50",
+        "sha256_in_prefix": "e1f7f900bc374bf126dfa3a5c5eec0dede55433cee62afd896c1aa8dcb205b50",
+        "size_in_bytes": 1643
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/importstring.py",
+        "path_type": "hardlink",
+        "sha256": "4ebf8edc63bea57e068192a2c00dc906a6ac244610920828191e4b065f3a4253",
+        "sha256_in_prefix": "4ebf8edc63bea57e068192a2c00dc906a6ac244610920828191e4b065f3a4253",
+        "size_in_bytes": 1210
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/nested_update.py",
+        "path_type": "hardlink",
+        "sha256": "441fc0b30a7eb2c6591cadba553a441079cd6a5714363bce5f813ecb56f7074d",
+        "sha256_in_prefix": "441fc0b30a7eb2c6591cadba553a441079cd6a5714363bce5f813ecb56f7074d",
+        "size_in_bytes": 1114
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/sentinel.py",
+        "path_type": "hardlink",
+        "sha256": "6f7d5fe73eaca1a65696b76ad824503ceb7fd63df5af632c45fe8674ed96a40a",
+        "sha256_in_prefix": "6f7d5fe73eaca1a65696b76ad824503ceb7fd63df5af632c45fe8674ed96a40a",
+        "size_in_bytes": 642
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/text.py",
+        "path_type": "hardlink",
+        "sha256": "9d78d4729bc91a6a178550dffcef9cac10a6135a0791b59be9b6288c0db0f50d",
+        "sha256_in_prefix": "9d78d4729bc91a6a178550dffcef9cac10a6135a0791b59be9b6288c0db0f50d",
+        "size_in_bytes": 1139
+      },
+      {
+        "_path": "Lib/site-packages/traitlets/utils/warnings.py",
+        "path_type": "hardlink",
+        "sha256": "677e00ad12948dc5fb06cf10befbc38b75bad086b588cfddf9de6db585a125f4",
+        "sha256_in_prefix": "677e00ad12948dc5fb06cf10befbc38b75bad086b588cfddf9de6db585a125f4",
+        "size_in_bytes": 1964
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "9617cced1f3dda7b511a1b19fce74ec6126de327febd3cbc096f1393b4253562",
+  "size": 214295,
+  "subdir": "win-64",
+  "timestamp": 1729038177000,
+  "url": "https://repo.anaconda.com/pkgs/main/win-64/traitlets-5.14.3-py313haa95532_0.conda",
+  "version": "5.14.3"
+}

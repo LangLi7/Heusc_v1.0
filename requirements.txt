@@ -1,0 +1,14 @@
+dash
+ipywidgets
+ipython
+jupyter
+matplotlib
+numpy
+pandas
+plotly
+python-binance
+requests
+scikit-learn
+shap
+tensorflow
+yfinance

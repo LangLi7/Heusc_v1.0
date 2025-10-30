@@ -1,0 +1,13 @@
+prefix=D:/.Projekt/Programmieren/Python/AI/Project HEUSC/Konzept_One/Daytrading/v1.0/env/Library
+exec_prefix=D:/.Projekt/Programmieren/Python/AI/Project HEUSC/Konzept_One/Daytrading/v1.0/env/Library
+libdir=D:/.Projekt/Programmieren/Python/AI/Project HEUSC/Konzept_One/Daytrading/v1.0/env/Library/lib
+sharedlibdir=D:/.Projekt/Programmieren/Python/AI/Project HEUSC/Konzept_One/Daytrading/v1.0/env/Library/lib
+includedir=D:/.Projekt/Programmieren/Python/AI/Project HEUSC/Konzept_One/Daytrading/v1.0/env/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.3.1
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

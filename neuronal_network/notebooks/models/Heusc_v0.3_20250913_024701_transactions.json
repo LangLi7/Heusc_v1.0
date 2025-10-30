@@ -1,0 +1,26 @@
+{
+    "model": "Heusc_v0.3_20250913_024701.keras",
+    "created": "2025-09-13 12:44:30.558297",
+    "balance": 1000,
+    "transactions": [
+        {
+            "timestamp": "2025-09-13 12:44:27",
+            "symbol": "BTCUSDT",
+            "open": 116059.8,
+            "high": 116059.81,
+            "low": 116051.0,
+            "close": 116051.0,
+            "prev_close": 116059.8,
+            "current_close": 116051.0,
+            "volume": 2.50022,
+            "balance_invested": 100.0,
+            "profit": 0,
+            "predicted": "red",
+            "actual": "red",
+            "confidence": {
+                "green": 0.7,
+                "red": 0.3
+            }
+        }
+    ]
+}

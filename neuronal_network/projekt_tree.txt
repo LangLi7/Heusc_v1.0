@@ -1,0 +1,33 @@
+trading_ai_project/
+│
+├─ data/                     # Rohdaten aus CSVs
+│   ├─ btc-usdt-1m-7d.csv
+│   ├─ eth-usdt-1m-7d.csv
+│   └─ ...                   
+│
+├─ notebooks/                # Optional: Jupyter Notebooks zum Testen & Analyse
+│   └─ exploration.ipynb
+│
+├─ src/
+│   ├─ __init__.py
+│   │
+│   ├─ data_loader.py        # CSVs laden, Candle-Sequenzen erstellen
+│   ├─ feature_engineering.py# Indikatoren, Patterns, Features
+│   ├─ ml_model.py           # Klassische ML Modelle (RandomForest, XGBoost)
+│   ├─ dl_model.py           # LSTM / GRU Modelle
+│   ├─ hybrid_model.py       # Kombination ML + DL + Explainable Layer
+│   ├─ predictor.py          # Pipeline: CSV → Features → Prediction → Reason
+│   ├─ terminal_logger.py    # Terminalausgabe inkl. Farben (Live + Train)
+│   └─ db_logger.py          # SQLite Transaktionen / Logs
+│
+├─ api/
+│   ├─ __init__.py
+│   └─ flask_api.py          # Flask REST-API, holt Live-/Train-Daten, gibt JSON zurück
+│
+├─ scripts/
+│   ├─ live_run.py           # Live-Modus starten (Terminal + API optional)
+│   └─ train_run.py          # Trainingsmodus starten, Daten aus CSV nutzen
+│
+├─ requirements.txt          # alle benötigten Python-Pakete
+├─ .env                      # Binance API Key / Secret, DB Pfad etc.
+└─ README.md

@@ -1,0 +1,54 @@
+{
+    "allgemein_settings": {
+        "model_folder": "models",
+        "use_model_file": "",
+        "sequence_length": 128,
+        "train_epochs": 1000,
+        "batch_size": 64,
+        "validation_split": 0.2,
+        "early_stopping_patience": 5,
+        "feature_scaling": true,
+        "use_dropout": true,
+        "dropout_rate": 0.2,
+        "loss_function": "binary_crossentropy",
+        "optimizer": "adam",
+        "debug_mode": true
+    },
+    "offline": {
+        "enabled": true,
+        "csv_folder": "csv/binance",
+        "csv_file": "BTCUSDT-1m-1mo-binance-2025-09-12_22-43-22.csv"
+    },
+    "online": {
+        "symbols": [
+            "BTC",
+            "ETH",
+            "SOL"
+        ],
+        "currencies": [
+            "USDT",
+            "USDT",
+            "USDT"
+        ],
+        "interval": "1m",
+        "poll_seconds": 10,
+        "max_live_train_minutes": 60
+    },
+    "balance": {
+        "use_simulation": true,
+        "initial_balance": 1000,
+        "save_on_profit_percent": 50,
+        "game_over_threshold": 0,
+        "balance_reward_factor": 1.0,
+        "retrain_from_best": true
+    },
+    "training_options": {
+        "use_weighting": true,
+        "punish_on_wrong": true,
+        "predict_confidence": true,
+        "log_transactions": true,
+        "continual_learning": true,
+        "transfer_learning": true,
+        "ensemble_enabled": true
+    }
+}

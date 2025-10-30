@@ -1,0 +1,15 @@
+{
+ "argv": [
+  "D:/.Projekt/Programmieren/Python/AI/Project HEUSC/Konzept_One/Daytrading/v1.0/env\\python.exe",
+  "-Xfrozen_modules=off",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "Python 3 (ipykernel)",
+ "language": "python",
+ "metadata": {
+  "debugger": true
+ }
+}

@@ -1,0 +1,130 @@
+README – settings.json
+Zweck
+
+Die settings.json Datei enthält alle Konfigurationswerte für den Trading-Bot.
+Sie steuert Training, Live-Datenabruf, Balance-Simulation, Modelloptionen und Trainingslogik.
+
+Die Datei wird beim Start des Notebooks geladen. Falls sie nicht existiert, wird eine Standardversion erstellt.
+
+Aufbau der Datei
+1. allgemein_settings
+
+Allgemeine Parameter für das neuronale Netzwerk und Trainingsverhalten:
+
+Schlüssel	Typ	Beschreibung
+model_folder	String	Ordner, in dem Modelle (.h5) gespeichert werden
+use_model_file	String	Name der zu ladenden H5-Datei. Leer = neues Modell wird erstellt
+sequence_length	Int	Länge der Eingabesequenzen (z. B. 60 Candles)
+train_epochs	Int	Anzahl Trainingsdurchläufe pro Training
+batch_size	Int	Batch-Größe für das Training
+validation_split	Float	Anteil der Daten für Validierung (0–1)
+early_stopping_patience	Int	Geduld bei Early Stopping (keine Verbesserung)
+feature_scaling	Bool	True = Features werden normalisiert/skaliert
+use_dropout	Bool	True = Dropout wird angewendet
+dropout_rate	Float	Dropout-Rate (0–1)
+loss_function	String	Verlustfunktion, z. B. "binary_crossentropy"
+optimizer	String	Optimierer, z. B. "adam"
+debug_mode	Bool	True = zusätzliche Logs für Debugging
+2. offline
+
+Einstellungen für Training mit CSV-Dateien:
+
+Schlüssel	Typ	Beschreibung
+enabled	Bool	True = Offline-Training aktiv
+csv_folder	String	Ordnerpfad zu den CSV-Dateien
+csv_file	String	Name der CSV-Datei, die für Training genutzt wird
+3. online
+
+Einstellungen für Live-Training über API:
+
+Schlüssel	Typ	Beschreibung
+enabled	Bool	True = Live/Online-Training aktiv
+symbols	List[String]	Zu überwachende Assets (z. B. ["BTC","ETH"])
+currencies	List[String]	Währung für jedes Symbol (z. B. ["USDT","USD"])
+interval	String	Zeitintervall der Candles ("1m","1h",…)
+poll_seconds	Int	Abfrageintervall in Sekunden
+max_live_train_minutes	Int	Max. Dauer für Live-Training in Minuten
+4. balance
+
+Simulation von Trading-Balance (optional für reinforcement-artiges Training):
+
+Schlüssel	Typ	Beschreibung
+use_simulation	Bool	True = Balance-Simulation aktiv
+initial_balance	Float	Startkapital für Simulation
+save_on_profit_percent	Float	Modell speichern bei X% Gewinn
+game_over_threshold	Float	Balance-Wert für „Game Over“
+balance_reward_factor	Float	Multiplikator für Belohnung/Strafe
+retrain_from_best	Bool	True = beim Retraining bestes Modell laden
+5. training_options
+
+Optionen für Trainingslogik, Gewichtung und Logging:
+
+Schlüssel	Typ	Beschreibung
+use_weighting	Bool	True = Gewichtung bei richtig/falsch Prognosen
+punish_on_wrong	Bool	True = Falsche Prognosen führen zu Strafe
+predict_confidence	Bool	True = Confidence-Werte (Prozent) ausgeben
+log_transactions	Bool	True = Jede Aktion/Transaktion wird im Log gespeichert
+Hinweise
+
+Keine Kommentare in JSON – Kommentare in // oder # führen zu Fehlern.
+
+Alle Pfade können relativ zum Projektordner angegeben werden.
+
+Anpassungen an Parametern können direkt in der JSON-Datei vorgenommen werden.
+
+1️⃣ Modell-Architektur (model.summary())
+
+Du siehst diese Tabelle:
+
+Layer (type)	Output Shape	Param #
+conv1d	(None, 58, 64)	1,024
+conv1d_1	(None, 56, 32)	6,176
+lstm	(None, 50)	16,600
+dropout	(None, 50)	0
+dense	(None, 1)	51
+
+Output Shape: Form der Daten nach der Schicht.
+
+None → Batch-Größe (beliebig)
+
+Zahlen danach → Zeitschritte und Feature-Kanäle.
+
+Param #: Anzahl der trainierbaren Parameter in der Schicht.
+
+Erklärung der einzelnen Layers:
+
+conv1d (64 Filter, kernel 3)
+
+Eingabe: (sequence_length=60, n_features=5)
+
+Ausgabe: (58, 64) → 58 Zeitschritte (wegen Kernel-Size=3), 64 Feature Maps
+
+Param # = 64 Filter × (3 Kernel × 5 Input Features + 1 Bias) = 1,024 ✅
+
+conv1d_1 (32 Filter, kernel 3)
+
+Eingabe: (58, 64)
+
+Ausgabe: (56, 32) → 56 Zeitschritte, 32 Feature Maps
+
+Param # = 32 × (3×64 +1) = 6,176 ✅
+
+LSTM (50 Units)
+
+Eingang: (56, 32)
+
+Ausgabe: (50) → LSTM gibt letzten Hidden State
+
+Param # = 4 × [units × (units + input_dim) + bias] = 16,600 ✅
+
+Dropout (0.2)
+
+Nur zur Regularisierung → reduziert Overfitting
+
+Param # = 0 (kein Lernen)
+
+Dense (1)
+
+Sigmoid für binary classification (Close steigt = 1, sonst 0)
+
+Param # = 50 × 1 + 1 Bias = 51 ✅

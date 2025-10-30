@@ -1,0 +1,118 @@
+# api_candles_flask.py
+from flask import Flask, request, jsonify
+import os
+import asyncio
+import datetime
+import yfinance as yf
+from concurrent.futures import ThreadPoolExecutor
+from binance.client import Client
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# --- Setup ---
+API_KEY = os.getenv("BINANCE_API_KEY") or "DEIN_KEY"
+API_SECRET = os.getenv("BINANCE_API_SECRET") or "DEIN_SECRET"
+binance_client = Client(API_KEY, API_SECRET)
+CSV_FOLDER = "csv"
+os.makedirs(CSV_FOLDER, exist_ok=True)
+
+app = Flask(__name__)
+executor = ThreadPoolExecutor(max_workers=8)  # parallele Threads
+
+# --- Hilfsfunktionen ---
+def format_filename(symbol, currency, interval):
+    now = datetime.datetime.now()
+    timestamp = now.strftime("%Y-%m-%d_%H-%M")
+    return os.path.join(CSV_FOLDER, f"{symbol}_{currency}_{interval}_{timestamp}.csv")
+
+# --- Yahoo Finance ---
+async def fetch_yf_price(symbol, interval="1m"):
+    return await asyncio.to_thread(lambda: yf.Ticker(symbol).history(period="1d", interval=interval)["Close"].iloc[-1])
+
+async def fetch_yf_prices(symbols, interval="1m"):
+    tasks = [fetch_yf_price(sym, interval) for sym in symbols]
+    results = await asyncio.gather(*tasks, return_exceptions=True)
+    return {sym: res for sym, res in zip(symbols, results)}
+
+# --- Binance ---
+def fetch_binance_price(symbol):
+    try:
+        ticker = binance_client.get_symbol_ticker(symbol=symbol)
+        return float(ticker["price"])
+    except Exception as e:
+        return str(e)
+
+def fetch_binance_candle(symbol):
+    # letzte 2 1-Minuten-Kerzen
+    klines = binance_client.get_klines(symbol=symbol, interval=Client.KLINE_INTERVAL_1MINUTE, limit=2)
+    prev_close = float(klines[0][4])
+    current_close = float(klines[1][4])
+    color = "green" if current_close > prev_close else "red"
+    return {"symbol": symbol, "prev_close": prev_close, "current_close": current_close, "color": color}
+
+# --- CSV Historisch ---
+def fetch_csv(symbol, source, interval="1m", period_days=90):
+    now = datetime.datetime.now()
+    start = now - datetime.timedelta(days=period_days)
+    filename = format_filename(symbol, source, interval)
+
+    if source.lower() == "binance":
+        start_str = start.strftime("%d %b, %Y")
+        end_str = now.strftime("%d %b, %Y")
+        klines = binance_client.get_historical_klines(symbol, Client.KLINE_INTERVAL_1MINUTE, start_str, end_str)
+        with open(filename, "w", newline="") as f:
+            import csv
+            writer = csv.writer(f)
+            columns = ["open_time","open","high","low","close","volume","close_time",
+                       "quote_asset_volume","number_of_trades",
+                       "taker_buy_base_asset_volume","taker_buy_quote_asset_volume","ignore"]
+            writer.writerow(columns)
+            writer.writerows(klines)
+    elif source.lower() == "yahoo":
+        sym_yf = symbol if "-" in symbol else f"{symbol}-USD"
+        import pandas as pd
+        data = yf.download(sym_yf, start=start, end=now, interval=interval)
+        data.to_csv(filename)
+    return filename
+
+# --- API Endpunkte ---
+@app.route("/api/live")
+def api_live():
+    symbol = request.args.get("symbol")
+    source = request.args.get("source", "binance").lower()
+    interval = request.args.get("interval", "1m")
+
+    if not symbol:
+        return jsonify({"error": "symbol erforderlich"}), 400
+
+    if source == "binance":
+        data = fetch_binance_candle(symbol)
+        return jsonify(data)
+    elif source == "yahoo":
+        price = asyncio.run(fetch_yf_prices([symbol], interval))
+        # Candle: letzte Minute grün oder rot
+        vals = list(price.values())
+        color = "green" if len(vals)>=2 and vals[-1] > vals[-2] else "red"
+        return jsonify({"symbol": symbol, "price": vals[-1], "color": color})
+    else:
+        return jsonify({"error": "Quelle muss binance oder yahoo sein"}), 400
+
+@app.route("/api/csv")
+def api_csv():
+    symbol = request.args.get("symbol")
+    source = request.args.get("source", "binance").lower()
+    interval = request.args.get("interval", "1m")
+    period = int(request.args.get("period", 90))  # Tage
+
+    if not symbol:
+        return jsonify({"error": "symbol erforderlich"}), 400
+
+    # parallele Threads für CSV-Erstellung
+    future = executor.submit(fetch_csv, symbol, source, interval, period)
+    filename = future.result()
+    return jsonify({"csv_file": filename})
+
+# --- Start ---
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)

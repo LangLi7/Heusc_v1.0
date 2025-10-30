@@ -1,0 +1,228 @@
+📊 Live Trading & Historical Candle API
+
+Dieses Projekt stellt eine Python-Flask-API zur Verfügung, um Live- und historische Candlestick-Daten von Binance und Yahoo Finance zu laden, zu speichern und als CSV bereitzustellen. Es richtet sich an Trader, Entwickler und KI-Enthusiasten, die Trading-Daten analysieren, visualisieren oder für Machine Learning nutzen möchten.
+
+🔹 Features
+
+Live-Candles abrufen
+
+Binance (USDT) oder Yahoo Finance (USD, EUR, CHF)
+
+Intervalle: z. B. 1 Minute
+
+Ausgabe als JSON über API
+
+Optional: Webhook-Push für jede neue Candle
+
+Historische Candles (Chunked Download)
+
+Lade historische Daten automatisch in Chunks (z. B. 7 Tage pro Request bei Yahoo)
+
+Unterstützt verschiedene Perioden (Tage, Monate, Jahre)
+
+Ausgabe als JSON oder CSV
+
+CSV-Export
+
+Speichert Candles als OHLCV + Farbe
+
+Ideal für Machine Learning / Backtesting
+
+Live-Loop & Training Mode
+
+Live-Daten zur sofortigen Analyse
+
+Kombination aus historischer Datenbasis + aktuellem Live-Candle
+
+Farbkodierung: grün = Aufwärtscandle, rot = Abwärtscandle
+
+🔹 Installation
+# 1. Projekt klonen
+git clone <repo-url>
+cd <projektordner>
+
+# 2. Virtuelle Umgebung (optional)
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+3.13.x
+
+# 3. Abhängigkeiten installieren
+pip install -r requirements.txt
+
+# 4. .env Datei erstellen
+BINANCE_API_KEY=dein_key
+BINANCE_API_SECRET=dein_secret
+WEBHOOK_URL=optional
+
+# 5. Flask API starten
+python live_loop_train_csv_clean.py
+
+
+Die API läuft dann standardmäßig auf:
+
+http://127.0.0.1:5000
+
+🔹 API Endpoints
+Endpoint	Methode	Parameter	Beschreibung
+/api/live	GET	symbols, source=yahoo/binance, interval=1m	Holt aktuelle Candle(s) für die angegebenen Symbole
+/api/train_mode	GET	symbols, source, interval	Lädt historische Daten + Live-Candle, zeigt letzte 5 Candles + Live
+/api/fetch_candle	GET	symbol, source, interval	Holt nur eine einzelne Candle (Live)
+/api/csv	GET	symbol, source, interval, period	Exportiert historische Candles als CSV
+
+Beispiele:
+
+# Live-Daten abrufen
+"http://127.0.0.1:5000/api/live?symbols=BTCUSDT&source=binance&interval=1m"
+
+"http://127.0.0.1:5000/api/live?symbols=BTC-USD&source=yahoo&interval=1m"
+
+"http://127.0.0.1:5000/api/train_mode?symbols=BTCUSDT&source=binance&interval=1m&period=6mo"
+"http://127.0.0.1:5000/api/train_mode?symbols=BTC-USD&source=yahoo&interval=1m&period=6mo"
+
+# CSV erstellen
+"http://127.0.0.1:5000/api/csv?symbol=BTCUSDT&source=binance&interval=1m&period=6mo"
+
+"http://127.0.0.1:5000/api/csv?symbol=ETHUSDT&source=binance&interval=1m&period=1mo"
+
+"http://127.0.0.1:5000/api/csv?symbol=BTC-USD&source=yahoo&interval=1m&period=6mo"
+
+🔹 Candle-Struktur (JSON / CSV)
+
+Jede Candle enthält:
+
+Feld	Typ	Beschreibung
+timestamp	string	Zeitstempel der Candle
+symbol	string	Symbol, z. B. BTCUSDT oder BTC-USD
+open	float	Eröffnungspreis
+high	float	Höchstpreis
+low	float	Tiefstpreis
+close	float	Schlusskurs
+volume	float	Handelsvolumen (Anzahl Coins / Aktien)
+color	string	grün = Aufwärtscandle, rot = Abwärtscandle
+
+Das Hinzufügen von Volume ist besonders wichtig für Trading-Analysen und KI-Modelle, da es die Stärke eines Trends bestätigt.
+
+🔹 Verwendung im Trading
+
+Analyse von Trends & Breakouts
+
+Mit OHLCV-Daten lassen sich kurzfristige Bewegungen erkennen (1m, 5m, 15m).
+
+Volume zeigt, ob ein Trend stark unterstützt wird.
+
+Machine Learning / KI
+
+Candles können als Features für Modelle genutzt werden: Open, High, Low, Close, Volume, Farbe.
+
+Ziel: Vorhersage, ob die nächste Candle grün oder rot wird.
+
+Backtesting
+
+Historische Daten können in CSV exportiert und für Strategie-Tests verwendet werden.
+
+Live-Trading / Alerts
+
+Mit Live-Candles + Webhooks kannst du Signale automatisch an Trading-Bots oder Benachrichtigungen weiterleiten.
+
+🔹 Erweiterungsmöglichkeiten
+
+Unterstützen weiterer Exchanges (Kraken, Coinbase, etc.)
+
+Erweiterte Intervalle & Candle-Formate
+
+KI-Integration direkt über Flask-API (z. B. Vorhersage der nächsten Candle)
+
+Dashboard/Visualisierung via Plotly / TradingView Charts
+
+🔹 Hinweis
+
+Für Binance API ist ein Account mit API-Key notwendig.
+
+Volumen ist essenziell für Daytrading und Scalping.
+
+Für Yahoo Finance sind Daten in USD, EUR, CHF verfügbar (je nach Symbol).
+
+        ┌───────────────┐
+        │  User / API   │
+        │  Requests     │
+        └─────┬─────────┘
+              │
+              │ API Call: /api/live, /api/csv, /api/train_mode
+              ▼
+     ┌─────────────────────┐
+     │  Candle Fetch       │
+     │  (Binance / Yahoo)  │
+     └─────┬───────────────┘
+           │
+           │ OHLCV Data
+           ▼
+  ┌─────────────────────┐
+  │  Candle Processing  │
+  │  - prev_close       │
+  │  - color (green/red)│
+  │  - timestamp        │
+  └─────┬───────────────┘
+        │
+        │
+        ▼
+  ┌───────────────────────────┐
+  │  CSV Export / Storage     │
+  │  - OHLCV + Color          │
+  │  - Automatisch gespeichert│
+  └─────┬─────────────────────┘
+        │
+        │
+        ▼
+  ┌──────────────────────────┐
+  │  Live / Training Mode    │
+  │  - Live-Candles          │
+  │  - Historische Candles   │
+  │  - Optional Webhook      │
+  └─────┬────────────────────┘
+        │
+        ▼
+  ┌──────────────────────────┐
+  │  Trading / KI / Alerts   │
+  │  - Analyse von Trends    │
+  │  - Volumen Bestätigung   │
+  │  - Vorhersage nächste    │
+  │    Candle (grün/rot)     │
+  └──────────────────────────┘
+🔹 Erklärung der Schritte:
+
+User / API Requests
+
+Du rufst per REST-API Live- oder Trainingsdaten ab (/api/live, /api/train_mode, /api/csv).
+
+Candle Fetch (Binance/Yahoo)
+
+Historische Candles (Chunked) oder aktuelle Live-Candle
+
+OHLCV-Daten werden abgerufen
+
+Candle Processing
+
+Berechnung vorheriger Close, Farbe (grün/rot)
+
+Bereit für Terminalanzeige, CSV oder API-Response
+
+CSV Export / Storage
+
+Automatische Speicherung von OHLCV + Farbe
+
+Perfekt für Backtesting und KI-Training
+
+Live / Training Mode
+
+Kombination aus Historie + Live
+
+Optional Webhook-Benachrichtigung
+
+Trading / KI / Alerts
+
+Analyse von Trends
+
+Volumen zur Bestätigung von Bewegungen
+
+Vorbereitung von Features für Machine Learning (Vorhersage, Strategieentwicklung)

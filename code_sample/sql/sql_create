@@ -1,0 +1,10 @@
+CREATE TABLE trades (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    timestamp TEXT,
+    symbol TEXT,
+    action TEXT,
+    price REAL,
+    quantity REAL,
+    capital_before REAL,
+    capital_after REAL
+);
